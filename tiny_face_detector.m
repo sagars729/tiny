@@ -180,22 +180,22 @@ bboxes(:,[1 3]) = max(1, min(raw_w, bboxes(:,[1 3])));
 t2 = toc(t1);
 
 % visualize detection on a reasonable resolution
-vis_img = raw_img;
-vis_bbox = bboxes;
-if max(raw_h, raw_w) > MAX_DISP_DIM
-  vis_scale = MAX_DISP_DIM/max(raw_h, raw_w);
-  vis_img = imresize(raw_img, vis_scale);
-  vis_bbox(:,1:4) = vis_bbox(:,1:4) * vis_scale;
-end
-visualize_detection(uint8(vis_img), vis_bbox, prob_thresh);
+%vis_img = raw_img;
+%vis_bbox = bboxes;
+%if max(raw_h, raw_w) > MAX_DISP_DIM
+%  vis_scale = MAX_DISP_DIM/max(raw_h, raw_w);
+%  vis_img = imresize(raw_img, vis_scale);
+%  vis_bbox(:,1:4) = vis_bbox(:,1:4) * vis_scale;
+%end
+%visualize_detection(uint8(vis_img), vis_bbox, prob_thresh);
 
 %
-drawnow;
+%drawnow;
 
 % (optional) export figure
-if ~isempty(output_path)
-  export_fig('-dpng', '-native', '-opengl', '-transparent', output_path, '-r300');
-end
+%if ~isempty(output_path)
+%  export_fig('-dpng', '-native', '-opengl', '-transparent', output_path, '-r300');
+%end
 
 fprintf('Detection was finished in %f seconds\n', t2);
 
