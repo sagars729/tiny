@@ -4,3 +4,6 @@
 [submodule "toolbox/export_fig"]
 	path = toolbox/export_fig
 	url = https://github.com/altmany/export_fig.git
+[submodule "matconvnet_new"]
+	path = matconvnet_new
+	url = git@github.com:sagars729/matconvnet.git
