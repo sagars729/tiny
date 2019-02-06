@@ -105,6 +105,8 @@ min_scale = min(floor(log2(max(clusters_w(normal_idx)/raw_w))),...
                 floor(log2(max(clusters_h(normal_idx)/raw_h))));
 max_scale = min(1, -log2(max(raw_h, raw_w)/MAX_INPUT_DIM));
 scales = [min_scale:0, 0.5:0.5:max_scale];
+% fprintf('%d\n',scales)
+scales = [-1,0,1];
 
 for s = 2.^scales
   img = imresize(raw_img, s, 'bilinear');
