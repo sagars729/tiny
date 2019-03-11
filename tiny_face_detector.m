@@ -61,7 +61,7 @@ if ~exist(model_path)
 end
 
 % loadng pretrained model (and some final touches)
-fprintf('Loading pretrained detector model...\n');
+% fprintf('Loading pretrained detector model...\n');
 net = load(model_path);
 net = dagnn.DagNN.loadobj(net.net);
 net.mode = 'test';
@@ -112,7 +112,7 @@ for s = 2.^scales
   img = imresize(raw_img, s, 'bilinear');
   img = bsxfun(@minus, img, averageImage);
 
-  fprintf('Processing %s at scale %f.\n', image_path, s);
+  % fprintf('Processing %s at scale %f.\n', image_path, s);
   
   if strcmp(net.device, 'gpu')
     img = gpuArray(img);
@@ -199,7 +199,7 @@ t2 = toc(t1);
 %  export_fig('-dpng', '-native', '-opengl', '-transparent', output_path, '-r300');
 %end
 
-fprintf('Detection was finished in %f seconds\n', t2);
+% fprintf('Detection was finished in %f seconds\n', t2);
 
 % free gpu device
 if gpu_id > 0 
